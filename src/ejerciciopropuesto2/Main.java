@@ -20,16 +20,14 @@ public class Main {
       casas = generarCincoCasas(casas);
       
       //Mostramos listado de direcciones
-      System.out.println("Aquí se muestran las direcciones de las casas");
-      for(int i = 0, fin = casas.length; i<fin; i++) {
-           System.out.println("Casa nº" + i + " " + casas[0].Direccion);
-      }
+      listasCasas(casas, "Direccion");
+      
       //Mostramos códigos postales
-      
+       listasCasas(casas, "CP");
       //Mostramos número de habitaciones
-      
+       listasCasas(casas, "NHabitaciones");
       //Mostramos metros cuadrados
-      
+      listasCasas(casas, "MCuadrados");
     }
     //Método que recibe un array de Casa y devuelve el mismo array con datos rellenos 
     private static Casa[] generarCincoCasas(Casa[] casas) {
@@ -42,5 +40,40 @@ public class Main {
         
         return casas;
     }
+    
+    //Método que muestra por consula cualquier parámetro que reciba
+    private static void mostrar(String texto) {
+        System.out.println(texto);
+    }
+
+    private static void listasCasas(Casa[] casas, String tipo) {
+        String opcion = "";
+        switch(tipo) {
+            case "Direccion": opcion = "las direcciones";
+            break;
+            case "CP": opcion = "los códigos postales";
+            break;
+            case "NHabitaciones": opcion = "el número de habitaciones";
+            break;
+            case "MCuadrados": opcion = "los metros cuadrados";
+        }
+        
+        mostrar("Aqui se muestran " + opcion + " de las casas");
+     
+      for(int i = 0, fin = casas.length; i<fin; i++) {
+           switch(tipo) {
+            case "Direccion": opcion = casas[i].Direccion;
+            break;
+            case "CP": opcion =  String.valueOf(casas[i].CP);
+            break;
+            case "NHabitaciones": opcion =  String.valueOf(casas[i].NHabitaciones);
+            break;
+            case "MCuadrados": opcion =  String.valueOf(casas[i].MCuadrados);
+        }
+           
+          mostrar("Casa nº" + i + " " + opcion);
+      }
+    }
+    
     
 }
