@@ -21,7 +21,7 @@ public class Casa {
         this.NHabitaciones = NHabitaciones;
         this.MCuadrados = MCuadrados;
     }
-    
+  
     
     public String getDireccion() {
         return Direccion;
