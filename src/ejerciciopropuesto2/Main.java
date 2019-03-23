@@ -46,6 +46,7 @@ public class Main {
         System.out.println(texto);
     }
 
+    //Método que recibe un array de objetos casa y lee solo la propiedad que se le pase como string del segundo parámetro
     private static void listasCasas(Casa[] casas, String tipo) {
         String opcion = "";
         switch(tipo) {
