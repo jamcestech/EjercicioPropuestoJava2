@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejerciciopropuesto2;
+package es;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -16,7 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
       //Inicializamos un array de objectos (casas)
-      Casa[] casas = new Casa[5];
+        ArrayList<Casa> casas = new ArrayList<>();
       casas = generarCincoCasas(casas);
       
       //Mostramos listado de direcciones
@@ -30,12 +32,12 @@ public class Main {
       listasCasas(casas, "MCuadrados");
     }
     //Método que recibe un array de Casa y devuelve el mismo array con datos rellenos 
-    private static Casa[] generarCincoCasas(Casa[] casas) {
-        casas[0] = new Casa("Direccion Casa 1",23710,5,200 );
-        casas[1] = new Casa("Direccion Casa 2",23700,4,301 );
-        casas[2] = new Casa("Direccion Casa 3",23710,3,420 );
-        casas[3] = new Casa("Direccion Casa 4",23700,2,225 );
-        casas[4] = new Casa("Direccion Casa 5",23710,1,110 );
+    private static  ArrayList<Casa> generarCincoCasas( ArrayList<Casa> casas) {
+        casas.add( new Casa("Direccion Casa 1",23710,5,200 ));
+        casas.add(  new Casa("Direccion Casa 2",23700,4,301 ));
+        casas.add( new Casa("Direccion Casa 3",23710,3,420 ));
+        casas.add( new Casa("Direccion Casa 4",23700,2,225 ));
+        casas.add(  new Casa("Direccion Casa 5",23710,1,110) );
      
         
         return casas;
@@ -47,7 +49,7 @@ public class Main {
     }
 
     //Método que recibe un array de objetos casa y lee solo la propiedad que se le pase como string del segundo parámetro
-    private static void listasCasas(Casa[] casas, String tipo) {
+    private static void listasCasas(ArrayList<Casa> casas, String tipo) {
         String opcion = "";
         switch(tipo) {
             case "Direccion": opcion = "las direcciones";
@@ -61,15 +63,15 @@ public class Main {
         
         mostrar("Aqui se muestran " + opcion + " de las casas");
      
-      for(int i = 0, fin = casas.length; i<fin; i++) {
+      for(int i = 0, fin = casas.size(); i<fin; i++) {
            switch(tipo) {
-            case "Direccion": opcion = casas[i].Direccion;
+            case "Direccion": opcion = casas.get(i).Direccion;
             break;
-            case "CP": opcion =  String.valueOf(casas[i].CP);
+            case "CP": opcion =  String.valueOf(casas.get(i).CP);
             break;
-            case "NHabitaciones": opcion =  String.valueOf(casas[i].NHabitaciones);
+            case "NHabitaciones": opcion =  String.valueOf(casas.get(i).NHabitaciones);
             break;
-            case "MCuadrados": opcion =  String.valueOf(casas[i].MCuadrados);
+            case "MCuadrados": opcion =  String.valueOf(casas.get(i).MCuadrados);
         }
            
           mostrar("Casa nº" + i + " " + opcion);
